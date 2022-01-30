@@ -1,0 +1,45 @@
+version: '2.0'
+services:
+  main:
+    image: chandrastation/arb-node:v3.1.1
+    env:
+      - ETH_RPC=https://eth.althea.net/
+    expose:
+      - port: 8547
+        as: 80
+        to:
+          - global: true
+      - port: 8548
+        to:
+          - global: true
+      - port: 9642
+        to:
+          - global: true
+
+profiles:
+  compute:
+    miner:
+      resources:
+        cpu:
+          units: 10
+        memory:
+          size: 4 Gi
+        storage:
+          size: 300 Gi
+  placement:
+    any:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - 'akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63'
+      pricing:
+        miner:
+          denom: uakt
+          amount: 1000
+
+deployment:
+  main:
+    any:
+      profile: miner
+      count: 1
