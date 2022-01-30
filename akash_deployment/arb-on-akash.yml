@@ -3,7 +3,7 @@ services:
   main:
     image: chandrastation/arb-node:v3.1.1
     env:
-      - ETH_RPC=https://eth.althea.net/
+      - ETH_RPC=https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161
     expose:
       - port: 8547
         as: 80
