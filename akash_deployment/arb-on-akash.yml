@@ -21,11 +21,11 @@ profiles:
     miner:
       resources:
         cpu:
-          units: 10
+          units: 6
         memory:
-          size: 4 Gi
+          size: 4Gi
         storage:
-          size: 300 Gi
+          size: 300Gi
   placement:
     any:
       attributes:
